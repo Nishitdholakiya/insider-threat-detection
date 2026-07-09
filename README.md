@@ -55,3 +55,25 @@ events in isolation.
 | Total scenarios | 3 |
 | Total malicious users | 70 |
 | Malicious activity date range | 2010-06-10 7:54:10 to 2011-04-29 20:04:27 |
+
+## Key Findings (Manual Exploration)
+
+### Confirmed Detection: User AAM0658 (Scenario 1)
+Manual inspection of `logon.csv` identified 9 after-hours sessions 
+(00:00–05:54 AM) between Oct 21 – Nov 2, 2010, following 9 months of 
+completely stable 9am–9pm logon behavior with zero prior after-hours 
+activity. 
+
+The detected window's start (Oct 23 01:34:19) and end (Oct 29 05:23:28) 
+timestamps exactly match the CERT answer key's documented scenario window 
+for this user. Additionally, 2 sessions (Oct 21, Nov 2) fall just outside 
+the officially labeled window — suggesting the behavioral change may have 
+begun slightly earlier and persisted slightly after the labeled incident 
+period. This is a useful reminder that ground-truth windows can be 
+narrower than the full behavioral shift, relevant for threshold tuning 
+later in the project.
+
+This finding validates the core project approach: behavioral deviation 
+from an established personal baseline is detectable using simple 
+aggregation, confirming that an anomaly-detection model has a legitimate, 
+learnable signal in this dataset.
