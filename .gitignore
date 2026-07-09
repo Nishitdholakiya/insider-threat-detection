@@ -216,3 +216,27 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ============================
+# Project-specific exclusions
+# ============================
+
+# Virtual environment (custom name used in this project)
+insider-threat-env/
+
+# Dataset - raw and processed (large files / usage terms)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/processed/answers_r42.csv
+
+# Trained models (large binary files)
+models/*.h5
+models/*.pkl
+models/*.keras
+!models/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
