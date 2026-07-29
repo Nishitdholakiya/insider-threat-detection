@@ -117,4 +117,24 @@ Train period: 2010-01-02 to 2010-06-01 (~32% of data)
 Test period: 2010-06-01 to 2011-05-17 (~68% of data, contains all scenarios)
 
 
+## EDA Highlights
+
+Logon Hour Distribution
+Malicious users show a visibly heavier tail into late-night/early-morning 
+hours compared to normal users, consistent with the after-hours behavior 
+described in the insider threat scenarios.
+
+USB Activity Over Time
+Malicious users show sharp, isolated spikes in USB activity clustered in 
+narrow windows, while normal users show flat, near-zero device usage 
+throughout — a clear behavioral signature.
+
+Class Imbalance
+Only 70 out of [total_users] users are malicious — confirming why accuracy 
+is not a viable evaluation metric for this project.
+
+Feature Correlation
+Feature correlations are generally low, suggesting each log source 
+contributes independent signal rather than redundant information — 
+supporting the use of all 5 sources in feature engineering.
 
