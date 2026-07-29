@@ -138,3 +138,13 @@ Feature correlations are generally low, suggesting each log source
 contributes independent signal rather than redundant information — 
 supporting the use of all 5 sources in feature engineering.
 
+### Feature Engineering Note: Rolling Baseline Absorption Effect
+Testing the device_count_deviation feature on user AAM0658 (Scenario 1) 
+shows a large deviation spike (+6.0) on the first anomalous day (Oct 21), 
+but subsequent deviations shrink and even turn negative as the 7-day 
+rolling average absorbs the new (malicious) behavior into its baseline. 
+This confirms rolling-window features are most sensitive to the ONSET of 
+anomalous behavior rather than its persistence, a known limitation that 
+motivates using a longer, stable-period autoencoder model (trained only 
+on the pre-June 2010 "clean" period) alongside rolling features, rather 
+than relying on rolling deviation alone.
