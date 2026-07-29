@@ -148,3 +148,16 @@ anomalous behavior rather than its persistence, a known limitation that
 motivates using a longer, stable-period autoencoder model (trained only 
 on the pre-June 2010 "clean" period) alongside rolling features, rather 
 than relying on rolling deviation alone.
+
+## Feature Engineering Summary
+Final feature table (`final_features.csv`) built at user-day granularity, 
+combining:
+- Raw daily counts: logon, device, file, email, http
+- Behavioral features: after_hours_logon_count, is_first_usb_use, 
+  external_email_count
+- Personal baseline deviations: 7-day rolling average and deviation for 
+  each raw count feature
+- Ground truth labels (for evaluation only, not model input): 
+  is_malicious_user, is_scenario_day
+
+Total: [X] user-day records, [Y] flagged as within an actual scenario window.
