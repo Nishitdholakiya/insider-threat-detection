@@ -77,3 +77,33 @@ This finding validates the core project approach: behavioral deviation
 from an established personal baseline is detectable using simple 
 aggregation, confirming that an anomaly-detection model has a legitimate, 
 learnable signal in this dataset.
+
+### Confirmed Multi-Source Detection: User AAM0658 (Scenario 1)
+
+Cross-referencing `logon.csv` and `device.csv` reveals a complete, 
+correlated behavioral signature:
+
+| Date | Logon (after-hours) | USB Activity |
+|---|---|---|
+| Oct 21 | 00:18–01:20 AM | 3x Connect/Disconnect cycles (00:22–01:18) |
+| Oct 23 | 01:34 AM | Connect/Disconnect (06:18–06:26) |
+| Oct 27 | 04:31–05:54 AM | Connect/Disconnect (04:37–04:59) |
+| Oct 29 | 00:06–05:23 AM | Connect/Disconnect (01:30–05:00) |
+| Nov 2 | 02:31–03:02 AM | Connect (02:40) |
+
+Zero USB events exist anywhere in this user's history before Oct 20, 2010. 
+The tight time correlation between after-hours logons and USB connect/
+disconnect cycles across 5 separate nights strongly matches Scenario 1's 
+described behavior: an employee with no prior removable-media usage who 
+begins working after hours and using a USB drive shortly before departure.
+
+This confirms the injected threat signal is detectable through combined 
+logon + device behavioral analysis, validating the project's anomaly 
+detection approach.
+
+## Cross-Source Aggregation Complete
+Built a unified user-day master table combining all 5 log sources 
+(logon, device, file, email, http), resulting in 330,452 user-day 
+records. Each row represents one user's complete activity summary for 
+one day, forming the foundation for feature engineering (Day 7-8) and 
+model training (Day 9+).
