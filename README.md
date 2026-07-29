@@ -105,5 +105,16 @@ detection approach.
 Built a unified user-day master table combining all 5 log sources 
 (logon, device, file, email, http), resulting in 330,452 user-day 
 records. Each row represents one user's complete activity summary for 
-one day, forming the foundation for feature engineering (Day 7-8) and 
-model training (Day 9+).
+one day, forming the foundation for feature engineering and 
+model training.
+
+Train/Test Split — Design Note
+
+The CERT r4.2 dataset's earliest injected scenario begins June 10, 2010, just ~5 months into the ~16.5-month dataset. This constrains the training period to roughly the first 32% of the timeline (Jan 2 – June 1, 2010) rather than a more typical 70-75% split, since no scenario data can be included in training without leakage. This is a structural characteristic of the r4.2 dataset (70 malicious users active across a wide, overlapping timeframe) rather than a modeling choice, and is noted as a limitation: the model has a smaller "clean" baseline period to learn normal behavior from than would be ideal.
+
+Split date: 2010-06-01
+Train period: 2010-01-02 to 2010-06-01 (~32% of data)
+Test period: 2010-06-01 to 2011-05-17 (~68% of data, contains all scenarios)
+
+
+
