@@ -160,4 +160,23 @@ combining:
 - Ground truth labels (for evaluation only, not model input): 
   is_malicious_user, is_scenario_day
 
-Total: [X] user-day records, [Y] flagged as within an actual scenario window.
+Total: 330452 user-day records, 1364 flagged as within an actual scenario window.
+
+## Baseline Model: Isolation Forest
+
+Trained on the pre-June 2010 "clean" period (32% of data), evaluated on 
+the test period containing all 70 malicious users' scenario windows.
+
+**Threshold-based results (contamination=0.02):**
+- Scenario days flagged as anomalous: 6.0% (82/1,364)
+- Normal days flagged as anomalous: 1.8% (4,004/223,917)
+- Scenario days flagged at ~3.3x the rate of normal days
+
+**Ranking-based results (more realistic for SOC alert-budget context):**
+- Precision@100: 8% — a ~13x improvement over the 0.6% random base rate
+- Precision@500: 5%
+
+**Conclusion:** the baseline model demonstrates a real, learnable signal 
+well above chance, but recall remains low and most alerts are false 
+positives at any fixed threshold. This establishes the floor the 
+autoencoder (Day 9-10) is expected to improve upon.
