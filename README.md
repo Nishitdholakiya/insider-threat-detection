@@ -179,4 +179,14 @@ the test period containing all 70 malicious users' scenario windows.
 **Conclusion:** the baseline model demonstrates a real, learnable signal 
 well above chance, but recall remains low and most alerts are false 
 positives at any fixed threshold. This establishes the floor the 
-autoencoder (Day 9-10) is expected to improve upon.
+autoencoder is expected to improve upon.
+
+## Autoencoder Model
+Architecture: 13 → 8 → 4 (bottleneck) → 8 → 13, trained on the 
+pre-June 2010 clean period only.
+
+- Final training loss (MSE): 0.261
+- Final validation loss (MSE): 0.272
+- Training converged smoothly over 50 epochs with no overfitting 
+  (train/val loss remain close throughout)
+- Training time: ~10 seconds
