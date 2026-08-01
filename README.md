@@ -205,3 +205,26 @@ This illustrates a realistic evaluation challenge: precision@k penalizes
 the model for this "miss" even though it correctly surfaced meaningful 
 threat-like behavior — underscoring that ground-truth-based metrics 
 should be interpreted alongside qualitative case review, not in isolation.
+
+## Model Evaluation Summary
+
+| Metric | Isolation Forest | Autoencoder | Ensemble (avg rank) |
+|---|---|---|---|
+| PR-AUC (primary) | 0.0215 | 0.0250 | **0.0280** |
+| ROC-AUC | 0.8561 | 0.8472 | — |
+| Precision@100 | 8% | 5% | **12%** |
+
+
+**Key findings:**
+- The ensemble (averaging both models' rank scores) outperforms either 
+  individual model on both PR-AUC and precision@100, confirming that 
+  Isolation Forest and the autoencoder catch partially different anomaly 
+  patterns.
+- ROC-AUC (~0.85 for both models) looks strong, but PR-AUC (~0.02-0.03) 
+  reveals the real difficulty of this task: with only 1,364 scenario 
+  days out of 225,281 total test user-days (0.6%), ROC-AUC is not 
+  sensitive enough to extreme imbalance, which is exactly why PR-AUC and 
+  precision@k are used as the primary metrics per the evaluation plan.
+- At a realistic analyst alert budget (top 100 daily alerts), the 
+  ensemble model surfaces genuine threat activity ~20x more often than 
+  random chance (12% vs 0.6% base rate).
