@@ -130,7 +130,7 @@ narrow windows, while normal users show flat, near-zero device usage
 throughout — a clear behavioral signature.
 
 Class Imbalance
-Only 70 out of [total_users] users are malicious — confirming why accuracy 
+Only 70 out of 1000 users are malicious — confirming why accuracy 
 is not a viable evaluation metric for this project.
 
 Feature Correlation
