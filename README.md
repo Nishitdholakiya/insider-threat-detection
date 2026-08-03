@@ -30,8 +30,6 @@ the captured keystrokes to log in as the supervisor and send a mass
 alarming email, causing organizational panic. The admin leaves immediately 
 afterward.
 
-*(Note: scenario descriptions 4 and 5 from CERT's documentation belong to 
-other releases, not r4.2, and are not part of this project's scope.)*
 
 ### Why This Matters for Modeling
 
