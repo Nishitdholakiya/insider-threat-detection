@@ -1,7 +1,7 @@
 ## Dataset Summary (CERT r4.2)
 
 **Source:** CERT Insider Threat Test Dataset, release r4.2  
-(Carnegie Mellon University / KiltHub — see link above)
+(Carnegie Mellon University / KiltHub)
 
 **Time span:** ~18 months of simulated organizational activity  
 **Log sources:** logon.csv, device.csv, file.csv, email.csv, http.csv, LDAP/ (org directory), answers/insiders.csv (ground truth)
