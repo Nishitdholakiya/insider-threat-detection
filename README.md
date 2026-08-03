@@ -261,7 +261,7 @@ Both models correctly flag this confirmed scenario day as high risk, driven by t
 ```
 Both models correctly clear this normal day as low risk.
 
-### 3. Special Case: User RKD0604, 2010-07-09 (unlabeled anomaly, discussed in Day 10)
+### 3. Special Case: User RKD0604, 2010-07-09 (unlabeled anomaly)
 **Input:** logon_count=3, device_count=18, file_count=27, first_usb_use=True, after_hours_logon_count=1, external_email_count=5
 
 **API Response:**
